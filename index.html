@@ -1,40 +1,576 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PASCO (UCC AFFILIATED COLLEGES)</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background-color: #f4f8fb;
-      color: #003366;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PASCO (UCC AFFILIATED COLLEGES)</title>
 
-    header {
-      background-color: #003366;
-      color: white;
-      padding: 25px 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    }
+<style>
+*{
+box-sizing:border-box;
+}
 
-    header h1 {
-      margin: 0;
-      font-size: 1.8em;
-    }
+body{
+font-family:Segoe UI;
+margin:0;
+background:#f4f8fb;
+color:#003366;
+text-align:center;
+}
 
-    section {
-      margin: 40px auto;
-      max-width: 500px;
-      background: white;
-      border-radius: 12px;
-      padding: 30px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
+header{
+background:#003366;
+color:white;
+padding:12px;
+}
 
+.container{
+max-width:900px;
+width:95%;
+margin:15px auto;
+background:white;
+padding:18px;
+border-radius:12px;
+box-shadow:0 3px 15px rgba(0,0,0,0.1);
+}
+
+button{
+width:100%;
+padding:12px;
+margin:8px 0;
+border:none;
+border-radius:6px;
+background:#0066cc;
+color:white;
+font-size:15px;
+cursor:pointer;
+}
+
+button:hover{
+background:#004c99;
+}
+
+.course{
+background:#f0f4f8;
+padding:10px;
+margin:8px 0;
+border-radius:6px;
+text-align:left;
+}
+
+input{
+width:100%;
+padding:10px;
+margin:10px 0;
+border:1px solid #ccc;
+border-radius:6px;
+}
+
+footer{
+margin:15px auto;
+text-align:center;
+padding:10px;
+color:#003366;
+font-size:13px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>PASCO PORTAL</h1>
+</header>
+
+<div class="container" id="app"></div>
+
+<footer>
+<strong>THE MATHS WHISPERER</strong><br>
+Maths made easy, success made certain
+</footer>
+
+<script>
+
+/* ================= COMPLETE DATABASE ================= */
+
+const DATABASE = {
+
+/* ================= ECE ================= */
+
+ece:{
+
+100:{
+
+1:[
+{name:"Child Development & Learning",link:"https://drive.google.com/drive/folders/1aoeFl0mJSCuf4atQPvg4Xj7GUPYYgD48"},
+{name:"Computer Literacy",link:"https://drive.google.com/drive/folders/1xk7yTZkK7ETjEtQIsN_SlrXORXpEC3Yx"},
+{name:"Elementary Algebra",link:"https://drive.google.com/drive/folders/1Ka7Bltr9uSRZAzfVQ6aup71WSSedBxje"},
+{name:"General Biology",link:"#"},
+{name:"Information Literacy Skills",link:"https://drive.google.com/drive/folders/1uFN54vW03aysIxBA_shukYoUqkPKJ5gW"},
+{name:"Language & Linguistics",link:"https://drive.google.com/drive/folders/1uh_w-B4bSD6cq-OiZemd7pBW-YZgCOfh"},
+{name:"Performing Arts & Society",link:"https://drive.google.com/drive/folders/1JBc5m78-i1SuMtpMDRshndUyqMPJShcg"},
+{name:"Principles & Practice of Education",link:"https://drive.google.com/drive/folders/1GubcESBBRd-hwk6Vg16YtpqTY-sdDpDz"}
+],
+
+2:[
+{name:"Early Literacy Development & Construction",link:"https://drive.google.com/drive/folders/1KNabIaONRRjr6XqeosfiBCGKD6TmH3i-"},
+{name:"Elementary Geometry",link:"https://drive.google.com/drive/folders/1HEBdLHjILU60pr9_M4gYa7dKSbIMDivR"},
+{name:"English Language Studies I",link:"https://drive.google.com/drive/folders/1e7NQ9JuQbxwGjSOkF5gcLZX529-rWZN3"},
+{name:"General Chemistry",link:"https://drive.google.com/drive/folders/1fSvJPJ1KnyzK4sYjlVSw9mrhesuRpBRE"},
+{name:"Prose Fiction",link:"https://drive.google.com/drive/folders/18umUkzhLvn6zrsjKTPpo_5RiUSZ28BuA"},
+{name:"Ghanaian Language and Culture: Cultural Studies",link:"https://drive.google.com/drive/folders/1xeKaXGhyM-HRLgP-0iIl7_nJpH96HBou"},
+{name:"Health, Safety and Social Issues In ECE",link:"https://drive.google.com/drive/folders/1TNVZRES5lgOxlX6A433fFgJp304wDPh0"},
+{name:"HIV/AIDS & Other Endemic Diseases In Africa",link:"https://drive.google.com/drive/folders/1bDW5a8SNsjT1hnrlC1rqKe8u9yKC4Apc"}
+]
+
+},
+
+200:{
+
+1:[
+{name:"Arts & Creativity in Early Grade Education",link:"https://drive.google.com/drive/folders/1CWWm6pVo2C7P2saz3nC742SZFcMXnsdf"},
+{name:"English Language Studies II",link:"https://drive.google.com/drive/folders/1uF4OeTPjuo1faRk2wOGzKpavOltkkO7b"},
+{name:"Environmental and Nature Studies",link:"https://drive.google.com/drive/folders/1OrR7QCpkn_2yg5ewajU45bZIKwyk7kJA"},
+{name:"General Curriculum Studies",link:"https://drive.google.com/drive/folders/1g-vhjpwmyWOii-9x9jH5wv-si0qnsw3m"},
+{name:"General Physics",link:"https://drive.google.com/drive/folders/1KuUyXkGxZvy6SZyYtr53OBPM27EY_ALS"},
+{name:"Ghanaian Language For ECE",link:"https://drive.google.com/drive/folders/1T0ZusNW3KZ1OEUgruBKAyPeob3CgLzA4"},
+{name:"Health & Physical Fitness",link:"https://drive.google.com/drive/folders/1p8nCrs9kzG8mRGIrRihzAzExD9uCzsEy"},
+{name:"Introduction to Semantics",link:"https://drive.google.com/drive/folders/1RPlxCXRfqgu34THPpIZGPOYzGfLw4zF1"}
+],
+
+2:[
+{name:"Assessment in ECE",link:"https://drive.google.com/drive/folders/1ZHRITWdxUKqDi9NgB5winuQbyBpXppeg"},
+{name:"Curriculum Studies In ECE",link:"https://drive.google.com/drive/folders/1wZm3r4GImJTWTrOZrO-rzhYbRD4F5351"},
+{name:"Instructional Methods in ECE",link:"https://drive.google.com/drive/folders/1CrC9NhYgLrVhb_jKUrcmWRr6sRWgPXrk"},
+{name:"Introduction to Diverse Learning Nedds In ECE",link:"https://drive.google.com/drive/folders/1EdQZPAfH3FEFrSd85mKGMZ01kPqTyoOL"},
+{name:"Mathematical Activities For ECE",link:"https://drive.google.com/drive/folders/1GBERO0zQUpf-G_MvZiDjcMfdkNY_FMaC"},
+{name:"Science Activities For ECE",link:"https://drive.google.com/drive/folders/1iXNKwadWG6n0GJfP-k83VT8E5P5c19Gz"},
+{name:"Teaching With Music,Movement & Drama",link:"https://drive.google.com/file/d/1nFd2kMS0mIAqcpkd0QK4cdh-OMeEfJsI/view?usp=drivesdk"},
+{name:"Theory & Principles of ECE",link:"https://drive.google.com/drive/folders/1wUMlA5DhUJ4k84jXd8DjdFrvjh8Fol1C"}
+]
+
+},
+
+300:{
+
+1:[
+{name:"Methods of Teaching English",link:"#"},
+{name:"Methods of Teaching Mathematics",link:"#"},
+{name:"Methods of Teaching Science",link:"#"},
+{name:"Methods of Teaching Social Studies",link:"#"}
+],
+
+2:[
+{name:"Educational Statistics",link:"#"},
+{name:"School Management & Administration",link:"#"},
+{name:"Micro Teaching",link:"#"}
+]
+
+},
+
+400:{
+
+1:[
+{name:"Macro Teaching",link:"#"},
+{name:"Project Work",link:"#"}
+],
+
+2:[
+{name:"Children’s Literature",link:"#"},
+{name:"Professional Practice & Ethics",link:"#"}
+]
+
+}
+
+},
+
+/* ================= PRIMARY ================= */
+
+primary:{
+
+100:{
+
+1:[
+{name:"Basic Design",link:"https://drive.google.com/drive/folders/14OWxthi1xVuI2Kmzs8yK6J22IuCcu_Tf"},
+{name:"Elementary Algebra",link:"#"},
+{name:"Computer Literacy",link:"#"},
+{name:"General Biology",link:"#"}
+],
+
+2:[
+{name:"African Traditional Religion",link:"https://drive.google.com/drive/folders/1N4_CW693I5Vv9SpOwhhOklXEKSigT3EQ"},
+{name:"Athletics For Basic Schools",link:"https://drive.google.com/drive/folders/1a1OBILlSBAza4PkfDkT3JLrRet4UFq-8"},
+{name:"College Geometry",link:"https://drive.google.com/drive/folders/1ZAaKQ-OOgkH1oyBm2Xc8R_Yuytocka_O"},
+{name:"Creativity & Perception",link:"https://drive.google.com/file/d/1S-Ru3UMetO9TYKw1kzD3A6bgXzG3Y5TE/view?usp=drivesdk"},
+{name:"English Language Studies I",link:"https://drive.google.com/drive/folders/1JAcEtWJ5idYWVbRyazkpgrLfLax-tDnH"},
+{name:"General Agriculture II",link:"https://drive.google.com/drive/folders/1NPrYtuaLfgd3VvT3UBnv00Ushnn1z4ik"},
+{name:"General Chemistry",link:"https://drive.google.com/drive/folders/1673GyuDe-Ps9O_kLd9kif-f5SF5y0gaa"},
+{name:"General Chemistry Practical I",link:"https://drive.google.com/drive/folders/1HnVML9Zf3F_yegcmIYuT-8qEbNfYowtG"},
+{name:"General Chemistry Theory I",link:"https://drive.google.com/drive/folders/1IQR5djHBp5B8oo4Yh1tnmj4vF6JR_2Hx"},
+{name:"General Physics Practical I",link:"https://drive.google.com/drive/folders/1IQR5djHBp5B8oo4Yh1tnmj4vF6JR_2Hx"},
+{name:"General Physics Theory I",link:"https://drive.google.com/drive/folders/1FwgDv1LiV09ngZ3bQwOWdDrXIjYXuOai"},
+{name:"Geometry & Trignometry",link:"https://drive.google.com/drive/folders/1vVWqWJCfP8Zm1LUjAF2RsDQFuTkiozoo"},
+{name:"Ghanaian Language & Culture: Cultural Studies",link:"https://drive.google.com/drive/folders/1eEBDmW-jzEdKnKjpb8STnn70BKifAnnG"},
+{name:"HIV/AIDS & Other Endemic Diseases In Africa",link:"https://drive.google.com/drive/folders/1AkVzdBgmE24mHQfVg8XEXMetZYGOhxYE"},
+{name:"Human-Land Issues In Social Studies",link:"https://drive.google.com/drive/folders/1LWLvYxQEr_Sx44Q4DHWyGOkHJuUzZ9El"},
+{name:"Integrated Pest Management",link:"https://drive.google.com/drive/folders/1B_2bAKEXVWjMwWWDfdRWxhq4kP2wrCmb"},
+{name:"Literature In English - Studies In Poetry",link:"https://drive.google.com/drive/folders/1EFXmP3Y3Q6YmvGr8cy0qDbw2wV6H489u"},
+{name:"Literature Of The Ghanaian Language",link:"https://drive.google.com/drive/folders/1oJA5UyDf7jOYO6UCssQHjzFXveQLgmLh"},
+{name:"Nature Of Performing Arts",link:"https://drive.google.com/drive/folders/1ET8NV3jr6V2CAcTG7M2GI4MWB0amROo8"},
+{name:"New Trends In Performing Arts",link:"https://drive.google.com/drive/folders/1ixoQxbU3tqZGnSlVplYJYpQjN0SJzfIS"},
+{name:"Office Suite In Education",link:"https://drive.google.com/drive/folders/1p8Q7O7NuTtdfVl6j0yqP5i1IJ19DPaGg"},
+{name:"Physical & Social Relations",link:"https://drive.google.com/drive/folders/1dLZB0ivrAh7bT1kBtjr-3pipOquz30DV"},
+{name:"Prose Fiction",link:"https://drive.google.com/drive/folders/1cx1rJ-iQOUHylie5GPaX6evQdueWtree"},
+{name:"The Natural Environment",link:"https://drive.google.com/drive/folders/1atQtVIWWDZ151e_8gGtxhNKPCpTx84bl"},
+{name:"Trigonometry",link:"https://drive.google.com/drive/folders/1UDfto_knrucD9GLAG1Oj79s16seqwCnl"},
+{name:"Written Literature Of The Ghanaian Language(TWI)",link:"https://drive.google.com/file/d/1R8ZeF0345f1wlycftnKup7-a9wICoGhd/view?usp=drivesdk"}
+]
+
+},
+
+200:{
+
+1:[
+{name:"English Language Studies II",link:"#"},
+{name:"General Curriculum Studies",link:"#"}
+],
+
+2:[
+{name:"Assessment In Basic Schools",link:"https://drive.google.com/drive/folders/18iNbbQjKp3DItndCFRw3kpKjFaQTv7en"},
+{name:"Curriculum Studies In Agricultural Science",link:"https://drive.google.com/drive/folders/1dGh1nv42tNMMKpYnZGqzydOqLC6Pp2nz"},
+{name:"Curriculum Studies In English",link:"https://drive.google.com/drive/folders/1Ec7Q6Ncn3Heo6hM__FIKAUwDbLGpITO_"},
+{name:"Curriculum Studies In Ghanaian Language & Culture(TWI)",link:"https://drive.google.com/drive/folders/1n3KDwiIVnD_GgdkndkuOlsE7duJPLwXY"},
+{name:"Curriculum Studies In ICT",link:"https://drive.google.com/file/d/191q5ZNa8iOd0PUpjNHwcyv2iFzl_cxNh/view?usp=drivesdk"},
+{name:"Curriculum Studies In Mathematics",link:"https://drive.google.com/drive/folders/15xbvtk-4KKlC6wA3Zan_vMp49ZmfX6R7"},
+{name:"Curriculum Studies In Performing Arts",link:"https://drive.google.com/drive/folders/1VgZ2mrYkQ9U0ItnLbbB7svBnxAy10Hd_"},
+{name:"Curriculum Studies In Physical Education",link:"https://drive.google.com/drive/folders/1tCP9i3G6y1QdMsK8xEMK8H36brpQwqkC"},
+{name:"Curriculum Studies In RME",link:"https://drive.google.com/drive/folders/18TfTn9Paw_txaXmEoS937DsFS8bWEnax"},
+{name:"Curriculum Studies In Science",link:"https://drive.google.com/drive/folders/1Y0JOAfkyQckHni4j7NxuKrBkB_J1aajS"},
+{name:"Curriculum Studies In Social Studies",link:"https://drive.google.com/drive/folders/1IFyp1hhUMxa0eYzgRdn4Oio7onaXpEn-"},
+{name:"Curriculum Studies In Visual Arts",link:"https://drive.google.com/drive/folders/1ORSvysb9QMyoH3A7ruzsIzLgccbZ49tF"},
+{name:"Educating Individuals With Diverse Learning Needs",link:"https://drive.google.com/drive/folders/1pfKmYJNUxwPmchFf9Ycd0u2E13e_Jwyu"},
+{name:"Forms & Functions Of The English Clause",link:"https://drive.google.com/drive/folders/1pQu3ajADSK1TTz8kWvGUfSz7q6PDiMAU"},
+{name:"General Biology Practical II",link:"https://drive.google.com/drive/folders/1yvUZELv8tDXbn3ZYtI9XUbyih-XCmWZV"},
+{name:"General Biology Theory II",link:"https://drive.google.com/drive/folders/1X9ydbyEc4t8N4aG0C_8Qib2gquGe0CDP"},
+{name:"General Principles & Methods Of Teaching In Basic Schools",link:"https://drive.google.com/file/d/1XXMxugPmJxC99__Zy_onHcgM3AQEE5Hg/view?usp=drivesdk"},
+{name:"Psychological Basics Of Teaching & Learning Mathematics",link:"https://drive.google.com/drive/folders/1iY7IYdWyC68quGUjzrF5D4D0kXBo1Myh"},
+{name:"The Social Structure Of Ghana",link:"https://drive.google.com/drive/folders/1F7XaQHLCa5tdKzPQ0NR4aGzzEuh9On1C"},
+{name:"Value Chain Agriculture",link:"https://drive.google.com/drive/folders/1D3eJYwEj99dsuL-9khTvyvIDrv1AWP1Y"},
+]
+
+},
+
+300:{
+
+1:[
+{name:"Methods of Teaching English",link:"#"},
+{name:"Methods of Teaching Mathematics",link:"#"},
+{name:"Methods of Teaching Science",link:"#"}
+],
+
+2:[
+{name:"Statistics II",link:"#"},
+{name:"Educational Statistics",link:"#"}
+]
+
+},
+
+400:{
+
+1:[
+{name:"Project Work",link:"#"}
+],
+
+2:[
+{name:"Children’s Literature",link:"#"}
+]
+
+}
+
+},
+
+/* ================= JHS ================= */
+
+jhs:{
+
+100:{
+
+1:[
+{name:"Computer Literacy",link:"#"},
+{name:"Elementary Algebra",link:"#"}
+],
+
+2:[
+{name:"African Traditional Religion",link:"https://drive.google.com/drive/folders/1WCVx5rNJ4ZZfMO90VqsAxPjuR_dXwWi3"},{name:"Athletics For Basic Schools",link:"https://drive.google.com/drive/folders/1aCXqt7vikb-lTVyXSzmPPMyjzZpJeJ2k"},
+{name:"College Geometry",link:"https://drive.google.com/drive/folders/1yFLXwsX9reRx7-A1IOgmB20B6QH6PDfa"},
+{name:"English Language Studies I",link:"https://drive.google.com/drive/folders/1B7WdiXSRf3oAW1zEMDuYfMz-CM5Uafus"},
+{name:"General Agriculture II",link:"https://drive.google.com/drive/folders/1AA47c-Wl02zpOYCe2MwN7aHbGUmomtSM"},
+{name:"General Chemistry Practical I",link:"https://drive.google.com/drive/folders/1erjwqy55oDko_Hq27PsmBPqn12U_iZ0y"},
+{name:"General Chemistry Theory I",link:"https://drive.google.com/drive/folders/1WK-eWZUvpaa0wwKEO8li9_HzeP41rrb2"},
+{name:"General Physics Practical I",link:"https://drive.google.com/drive/folders/1GnXPqzWA3ye1pPF6WtJfFPFGyEDOmNnB"},
+{name:"General Physics Theory I",link:"https://drive.google.com/drive/folders/1TwOdkmSb4ov37edn8WUoPKLLHoQYlniy"},
+{name:"Geometry & Trignometry",link:"https://drive.google.com/drive/folders/1GqiF5BoKiOXrkaMDQEd9nOpv5SJeZLRS"},
+{name:"Ghanaian Language & Culture: Cultural Studies",link:"https://drive.google.com/drive/folders/1OL6mPEm6iSaj8iDt3RRULMFMW5giP037"},
+{name:"HIV/AIDS & Other Endemic Diseases In Africa",link:"https://drive.google.com/drive/folders/1y5Za0U82K47BPvMXZNdkny-2FRLLs1YR"},
+{name:"Integrated Pest Management",link:"https://drive.google.com/drive/folders/1wPHkNXTiNZ1jkt_bXyqSYdGD3vkB9Voz"},
+{name:"Introduction to Anatomy & Exercise",link:"https://drive.google.com/drive/folders/1CreWWvJPaKDcIeos2zOudFntEVeM9KKz"},
+{name:"Introduction to Clothing & Textiles",link:"https://drive.google.com/drive/folders/1FAbCDxjWqin83v_wc4d7T741mKcsY-eR"},
+{name:"Introduction to Family Resource Management",link:"https://drive.google.com/drive/folders/1J9VAzrGQxqTCJ4srJ1_5_ZpkEJSuJDiL"},
+{name:"Introduction to Food & Nutrition",link:"https://drive.google.com/drive/folders/16QPEuUF7gb5jNqCy_qYGeTRCssb5ZxZ7"},
+{name:"Learning Theories for Teaching Computers",link:"https://drive.google.com/drive/folders/1QwGAGceOs6EQcKtp8m36FieuKraosUwo"},
+{name:"Literature in English – Studies in Poetry",link:"https://drive.google.com/drive/folders/1nRB0G_drC-tIhCvMFmDS2lo-HsqGf-Bt"},
+{name:"Literature OF Ghanaian Language ",link:"https://drive.google.com/drive/folders/1Son39G_qwh9UpOndx1q4Yw7TK0z-0RAX"},
+{name:"Nature of Performing Arts",link:"https://drive.google.com/drive/folders/1hGifj0-_goD2_l2Ax8WUA_Y5-PXmqURU"},
+{name:"New Trends In The Performing Arts ",link:"https://drive.google.com/drive/folders/17-kNGtt0EWqqltfgZ7upP6XBp9c-iMfk"},
+{name:"Office Suite in Education",link:"https://drive.google.com/drive/folders/1x7W6eU64RJdlQoo8sB72vU3HtK_89RGb"},{name:"Oral Literature of the Ghanaian Language",link:"https://drive.google.com/drive/folders/1QgMK5f2E1KgzCTuiYNp8NwVffktja1T0"},
+{name:"Pest Management ",link:"https://drive.google.com/drive/folders/1CBwnBlIGm9j3mosGeTnodrl-RwMRFZM_"},
+{name:"Physical & Social Relations in Social Studies",link:"https://drive.google.com/drive/folders/108SZqWecR1swL_VJ68_lWgTZtZv3Oaw3"},
+{name:"Prose Fiction",link:"https://drive.google.com/drive/folders/1LZzESrrp5jvmGsYNZY1QUq8IYPSLLnfI"},
+{name:"The Natural Environment",link:"https://drive.google.com/drive/folders/1huBYL_sT1WhUdezL86TqWyTqRsmfCnYZ"},
+{name:"Trigonometry",link:"https://drive.google.com/drive/folders/1TM0afUyoP9KWStmda4Il4-lEFhd-0cbS"},
+{name:"Workshop Practice & Management in Technical Skills",link:"https://drive.google.com/drive/folders/172CbFCudXMKhVfWvOqVRar9nuMvAuovz"},
+{name:"Written Literature of the Ghanaian Language",link:"https://drive.google.com/drive/folders/1Gr3wxrcsQ_OU0B2t4i6cDv_Bi9ZlWtZ0"}
+]
+
+},
+
+200:{
+
+1:[
+{name:"Databases",link:"#"},
+{name:"ICT Integration",link:"#"}
+],
+
+2:[
+{name:"Applied Visual Communication",link:"https://drive.google.com/drive/folders/1Bqk8TO3cNuMaXGlpumBjWEPxzdtvMBqV"},
+{name:"Assessment in Basic Schools",link:"https://drive.google.com/drive/folders/1RFPh7KaZWpldFRMkf4d43Oa-NZC4yHaV"},
+{name:"Basic Composition Technique",link:"https://drive.google.com/drive/folders/1rrnQHp7FUCbeq9V1v42jt8moTrBGZU7l"},
+{name:"Basic Pattern Drafting & Adap...",link:"https://drive.google.com/drive/folders/1wAHbk3f4-vAuAzPffeDvzHwQFQf2Uayl"},
+{name:"Basics Of Community Nutrition",link:"https://drive.google.com/drive/folders/16hYF77FCSQy9Tts2RMeE6d1LpcML0LsL"},
+{name:"Construction Technology II",link:"https://drive.google.com/drive/folders/1rAOtwICNwV9GzkIZH1tTvSekw-9VwXAg"},
+{name:"Curriculum Studies In Agriculture",link:"https://drive.google.com/drive/folders/1Gl1EJzEGy3ij-yCBkgby8DmuBZWmqJgO"},
+{name:"Curriculum Studies In Home Economics",link:"https://drive.google.com/drive/folders/1wUtjwSZboa5Z0WfJLVxJbILfo-oEPf-l"},
+{name:"Curriculum Studies In Mathematics",link:"https://drive.google.com/drive/folders/1urgZmCHB7xF1UNTX5onBz0ek_oSmtBw0"},
+{name:"Curriculum Studies In Techinical Skills",link:"https://drive.google.com/drive/folders/14xD636MNHdxzYWjgc1PC8b1ZNRpNgPGF"},
+{name:"Curriculum Studies In Visual Arts",link:"https://drive.google.com/drive/folders/1lsJKUFCArMvtyXx-w2yopxN35gjwcHht"},
+{name:"Designing Instructional Materials Using ICT Tools",link:"https://drive.google.com/drive/folders/1-PUdAf9BIdKpFfjEGOyzAJU-ZPRIJDZU"},
+{name:"Educating Individuals With Diverse Learning Needs",link:"https://drive.google.com/drive/folders/1VQUQOwdkv-73k5X3803Njvjj3PYy2FEj"},
+{name:"Entrepreneurship & Small Bussiness",link:"https://drive.google.com/drive/folders/1q5wRC9bmf29F3B_jPZ3bamAIqbSguzYR"},
+{name:"Environmental Ethics",link:"https://drive.google.com/drive/folders/139RPPaGtw_rGpBZecn2fCWvuTKgxGsyL"},
+{name:"Forms & Functions Of The English Clause",link:"https://drive.google.com/drive/folders/1u22jplhExY44Rb6i_thMGHgrhTM0V5zI"},
+{name:"General Biology Practical II",link:"https://drive.google.com/drive/folders/1eC8B0l0v5A6CdmkSvQrA02hxAXkyw2R5"},
+{name:"General Biology Theory II",link:"https://drive.google.com/drive/folders/1Cv--MCPQ964CXjnd4cJs2PfK-s7agPY6"},
+{name:"General Principles & Methods Of Teaching In Basic Schools",link:"https://drive.google.com/drive/folders/17zjmUSRh3QGfrMHxuA70NGQxdsr-Icxb"},
+{name:"Ghanaian Language & Culture: Comprehension & Summary",link:"https://drive.google.com/drive/folders/1faHG1ocC3Jad4bFR1Drk6iN3zD742Bs3"},
+{name:"Ghanaian Language & Culture: Morphology(TWI)",link:"https://drive.google.com/file/d/1s3yUJcfZccwe4PguAn65XYjz1okGWBD0/view?usp=drivesdk"},
+{name:"Integrated Soil Fertility Management",link:"https://drive.google.com/file/d/1-dtcxUUQmLVWgz-YspYQ3NEuvgAjTOS6/view?usp=drivesdk"},
+{name:"Introduction To Picture Making",link:"https://drive.google.com/drive/folders/1pbYijlHP2nUIhnDInLDkvPjqO700ckqu"},
+{name:"Introduction To Semantics",link:"https://drive.google.com/drive/folders/1_1FOm87yW4-AEYp6ghTccNBu96ANLwUZ"},
+{name:"Melody Writing",link:"https://drive.google.com/drive/folders/1NYUFdQE9Ivgt_HHt-zQlx6T5vR65VL7h"},
+{name:"Metal Technology II",link:"https://drive.google.com/drive/folders/1p-hhiwInWrSbiHFyY9G9YstMH18Zzx7P"},
+{name:"Methods Of Teaching Science",link:"https://drive.google.com/drive/folders/1wRhjeG9yaXFVvLnCXqrVhbV1mZ8urBYG"},
+{name:"Morality & Social Values In Africa",link:"https://drive.google.com/drive/folders/1wppMi8aCLWo9kE3V8DoxQ8ORlHngUEUq"},
+{name:"Network Computing",link:"https://drive.google.com/drive/folders/1kVuDuSmpDfh_8BDoclrzKw4YLu4aJurZ"},
+{name:"Principles & Methods Of Teaching Performing Arts",link:"https://drive.google.com/file/d/179EfXvB9DwrwYY3pGbYxYYjaxTcVlbwj/view?usp=drivesdk"},
+{name:"Psychological Basics Of Teaching and Learning Mathematics",link:"https://drive.google.com/drive/folders/1TUNR01uuHfUFD2qVEpOai8QqFGniLyVZ"},
+{name:"Social Studies As An Integrated Subject",link:"https://drive.google.com/drive/folders/1l5BQZ-CmSsBOJoFn7KUmaKlg-yxGfP_B"},
+{name:"Sociological Perspectives Of RME",link:"https://drive.google.com/drive/folders/1enj6HTqjugr5soNtH_vzpJJLgjdWPZZx"},
+{name:"Studies In Shakespear",link:"https://drive.google.com/drive/folders/1LYpHPZt3CT9XtERYSgSu9flM9fWqOcJo"},{name:"System Development",link:"https://drive.google.com/drive/folders/14oA2Gp2yVZV9FbquydhHWfQmaA6xTliu"},{name:"The Social Environment",link:"https://drive.google.com/drive/folders/1Y4SCzI2dwztQJnqpheTnXC9jDxwOqOob"},
+]
+
+},
+
+300:{
+
+1:[
+{name:"ICT Integration in Education",link:"#"},
+{name:"Methods of Teaching Mathematics",link:"#"}
+],
+
+2:[
+{name:"Educational Statistics",link:"#"},
+{name:"School Management & Administration",link:"#"}
+]
+
+},
+
+400:{
+
+1:[
+{name:"Project Work",link:"#"}
+],
+
+2:[
+{name:"Electricity & Magnetism",link:"#"},
+{name:"Information Systems Management",link:"#"}
+]
+
+}
+
+}
+
+};
+
+/* ================= APP STATE ================= */
+
+let programme="", level="", semester="";
+const app=document.getElementById("app");
+
+/* ================= HOME ================= */
+
+function home(){
+
+app.innerHTML=`
+<h2>Select Programme</h2>
+
+<button onclick="selectProgramme('ece')">
+Early Childhood Education
+</button>
+
+<button onclick="selectProgramme('primary')">
+Primary Education
+</button>
+
+<button onclick="selectProgramme('jhs')">
+JHS Education
+</button>
+`;
+
+}
+
+/* ================= PROGRAMME ================= */
+
+function selectProgramme(p){
+
+programme=p;
+
+app.innerHTML=`
+<h2>Select Level</h2>
+
+<button onclick="selectLevel(100)">Level 100</button>
+<button onclick="selectLevel(200)">Level 200</button>
+<button onclick="selectLevel(300)">Level 300</button>
+<button onclick="selectLevel(400)">Level 400</button>
+
+<button onclick="home()">Back</button>
+`;
+
+}
+
+/* ================= LEVEL ================= */
+
+function selectLevel(l){
+
+level=l;
+
+app.innerHTML=`
+<h2>Select Semester</h2>
+
+<button onclick="selectSemester(1)">Semester 1</button>
+<button onclick="selectSemester(2)">Semester 2</button>
+
+<button onclick="selectProgramme('${programme}')">
+Back
+</button>
+`;
+
+}
+
+/* ================= SEMESTER ================= */
+
+function selectSemester(s){
+
+semester=s;
+
+let data = DATABASE?.[programme]?.[level]?.[semester] || [];
+
+let html=`
+<h2>Courses</h2>
+
+<input 
+placeholder="Search course..." 
+onkeyup="search(this.value)"
+>
+`;
+
+data.forEach(c=>{
+
+html+=`
+<div class="course">
+<b>${c.name}</b><br>
+
+<a href="${c.link}" target="_blank">
+View / Download
+</a>
+
+</div>
+`;
+
+});
+
+html+=`
+<button onclick="selectLevel(${level})">
+Back
+</button>
+`;
+
+app.innerHTML=html;
+
+}
+
+/* ================= SEARCH ================= */
+
+function search(val){
+
+let data = DATABASE[programme][level][semester];
+
+let filtered=data.filter(c=>
+c.name.toLowerCase().includes(val.toLowerCase())
+);
+
+let html=`
+<h2>Courses</h2>
+
+<input 
+value="${val}" 
+onkeyup="search(this.value)"
+>
+`;
+
+filtered.forEach(c=>{
+
+html+=`
+<div class="course">
+
+<b>${c.name}</b><br>
+
+<a href="${c.link}" target="_blank">
+View / Download
+</a>
+
+</div>
+`;
+
+});
+
+html+=`
+<button onclick="selectLevel(${level})">
+Back
+</button>
+`;
+
+app.innerHTML=html;
+
+}
+
+/* ================= START ================= */
+
+home();
+
+</script>
+
+</body>
+</html>
     select {
       width: 100%;
       padding: 12px;
